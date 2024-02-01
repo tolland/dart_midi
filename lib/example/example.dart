@@ -15,10 +15,17 @@ void main() {
   // You can now access your parsed [MidiFile]
   print(parsedMidi.tracks.length.toString());
 
+  for(var track in parsedMidi.tracks) {
+    //print(track.);
+    for(var event in track){
+      print(event.toString());
+    }
+  }
+
   // Construct a midi writer
-  var writer = MidiWriter();
+  //var writer = MidiWriter();
 
   // Let's write and encode our midi data again
   // You can also control `running` flag to compress file and  `useByte9ForNoteOff` to use 0x09 for noteOff when velocity is zero
-  writer.writeMidiToFile(parsedMidi, File('output.mid'));
+  //writer.writeMidiToFile(parsedMidi, File('output.mid'));
 }

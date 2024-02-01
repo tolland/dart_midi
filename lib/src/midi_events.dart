@@ -108,6 +108,11 @@ class NoteOnEvent extends MidiEvent {
     w.writeUInt8(velocity);
     return eventTypeByte;
   }
+
+  @override
+  String toString() {
+    return 'NoteOnEvent: c($channel) p($noteNumber) v($velocity) d($duration) $byte9';
+  }
 }
 
 class NoteAfterTouchEvent extends MidiEvent {
@@ -144,6 +149,11 @@ class NoteOffEvent extends MidiEvent {
     w.writeUInt8(noteNumber);
     w.writeUInt8(velocity);
     return eventTypeByte;
+  }
+
+  @override
+  String toString() {
+    return 'NoteOnEvent: c($channel) p($noteNumber) v($velocity) $byte9';
   }
 }
 
@@ -374,6 +384,11 @@ class TimeSignatureEvent extends MidiEvent {
     w.writeUInt8(thirtyseconds);
     return -1;
   }
+
+  @override
+  String toString() {
+    return 'TimeSignatureEvent: $numerator/$denominator';
+  }
 }
 
 class KeySignatureEvent extends MidiEvent {
@@ -388,5 +403,10 @@ class KeySignatureEvent extends MidiEvent {
     w.writeInt8(key);
     w.writeUInt8(scale);
     return -1;
+  }
+
+  @override
+  String toString() {
+    return 'KeySignatureEvent: $key $scale ($meta)';
   }
 }
